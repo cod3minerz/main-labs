@@ -1,0 +1,15 @@
+/Users/kirill/RiderProjects/Laba1/Laba1/bin/Debug/net7.0/Laba1
+/Users/kirill/RiderProjects/Laba1/Laba1/bin/Debug/net7.0/Laba1.deps.json
+/Users/kirill/RiderProjects/Laba1/Laba1/bin/Debug/net7.0/Laba1.runtimeconfig.json
+/Users/kirill/RiderProjects/Laba1/Laba1/bin/Debug/net7.0/Laba1.dll
+/Users/kirill/RiderProjects/Laba1/Laba1/bin/Debug/net7.0/Laba1.pdb
+/Users/kirill/RiderProjects/Laba1/Laba1/obj/Debug/net7.0/Laba1.csproj.AssemblyReference.cache
+/Users/kirill/RiderProjects/Laba1/Laba1/obj/Debug/net7.0/Laba1.GeneratedMSBuildEditorConfig.editorconfig
+/Users/kirill/RiderProjects/Laba1/Laba1/obj/Debug/net7.0/Laba1.AssemblyInfoInputs.cache
+/Users/kirill/RiderProjects/Laba1/Laba1/obj/Debug/net7.0/Laba1.AssemblyInfo.cs
+/Users/kirill/RiderProjects/Laba1/Laba1/obj/Debug/net7.0/Laba1.csproj.CoreCompileInputs.cache
+/Users/kirill/RiderProjects/Laba1/Laba1/obj/Debug/net7.0/Laba1.dll
+/Users/kirill/RiderProjects/Laba1/Laba1/obj/Debug/net7.0/refint/Laba1.dll
+/Users/kirill/RiderProjects/Laba1/Laba1/obj/Debug/net7.0/Laba1.pdb
+/Users/kirill/RiderProjects/Laba1/Laba1/obj/Debug/net7.0/Laba1.genruntimeconfig.cache
+/Users/kirill/RiderProjects/Laba1/Laba1/obj/Debug/net7.0/ref/Laba1.dll
