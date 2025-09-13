@@ -3,21 +3,34 @@ class Program
 {
     static void Main(string[] args)
     {
-        Trial trials1 = new Trial("Основы C#", 120);
-
         Trial test = new Test("Основы C#", 120, 10, 5);
-        //test.Start();
+        test.Start();
 
         Trial exam = new Exam("Основы C#", 120, "Ivan Ivanov", "Medium");
-        //exam.Start();
+        exam.Start();
 
         Trial finalExam = new FinalExam("Основы C#", 120, "Ivan Ivanov", "Medium", true, 30);
-        //finalExam.Start();
+        finalExam.Start();
     }
 }
 
+public interface IStart
+{
+    void Start();
+}
 
-public class Trial
+public interface INotification
+{
+    void Message();
+}
+
+public interface IPartingWords
+{
+    void PartingWords();
+}
+
+
+public abstract class Trial : IStart
 {
     protected string Name;
     protected int Duration;
@@ -46,14 +59,20 @@ public class Test : Trial
         _minPoints = minPoints;
     }
 
+    public void FinishTest()
+    {
+        Console.WriteLine("Написание теста подходит к концу");
+    }
+
     public override void Start()
     {
+        base.Start();
         Console.WriteLine($"Всего вопросов: {_countQuestions}");
         Console.WriteLine($"Минимальное количество баллов: {_minPoints}");
     }
 }
 
-public class Exam : Trial
+public class Exam : Trial, INotification
 {
     private string _examinerName;
     private string _complexity;
@@ -64,6 +83,11 @@ public class Exam : Trial
         _complexity = complexity;
     }
 
+    public void Message()
+    {
+        Console.WriteLine("Экзамен скоро начнется!");
+    }
+    
     public override void Start()
     {
         Console.WriteLine($"Имя экзаменатора: {_examinerName}");
@@ -71,7 +95,7 @@ public class Exam : Trial
     }
 }
 
-public class FinalExam : Exam
+public class FinalExam : Exam, INotification, IPartingWords
 {
     private bool _isReady;
     private int _daysLearning;
@@ -81,6 +105,16 @@ public class FinalExam : Exam
     {
         _isReady = isReady;
         _daysLearning = daysLearning;
+    }
+    
+    public new void Message()
+    {
+        Console.WriteLine("Выпускной экзамен скоро начнется!");
+    }
+
+    public void PartingWords()
+    {
+        Console.WriteLine("Напутствие: после выпускного экзамена ты свободен");
     }
 
     public override void Start()
