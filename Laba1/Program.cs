@@ -1,16 +1,23 @@
-﻿
+﻿public delegate void TestDelegate();
+
 class Program
 {
     static void Main(string[] args)
     {
-        Trial test = new Test("Основы C#", 120, 10, 5);
-        test.Start();
+        Test test = new Test("Основы C#", 120, 10, 5);
+        Exam exam = new Exam("Основы C#", 120, "Ivan Ivanov", "Medium");
+        FinalExam finalExam = new FinalExam("Основы C#", 120, "Ivan Ivanov", "Medium", true, 30);
 
-        Trial exam = new Exam("Основы C#", 120, "Ivan Ivanov", "Medium");
-        exam.Start();
+        TestDelegate testMethods = null;
+        testMethods += test.Start;
+        testMethods += exam.Start;
+        testMethods += exam.Message;
+        testMethods += finalExam.Start;
+        testMethods += finalExam.Message;
+        testMethods += finalExam.PartingWords;
 
-        Trial finalExam = new FinalExam("Основы C#", 120, "Ivan Ivanov", "Medium", true, 30);
-        finalExam.Start();
+        testMethods();
+
     }
 }
 
@@ -41,6 +48,8 @@ public abstract class Trial : IStart
         Duration = duration;
     }
 
+    public abstract void PrintDate();
+
     public virtual void Start()
     {
         Console.WriteLine($"Испытание по дисциплине {Name} началось");
@@ -57,6 +66,11 @@ public class Test : Trial
     {
         _countQuestions = countQuestions;
         _minPoints = minPoints;
+    }
+
+    public override void PrintDate()
+    {
+        Console.WriteLine("Тест завтра");
     }
 
     public void FinishTest()
@@ -83,10 +97,16 @@ public class Exam : Trial, INotification
         _complexity = complexity;
     }
 
-    public void Message()
+    public virtual void Message()
     {
         Console.WriteLine("Экзамен скоро начнется!");
     }
+    
+    public override void PrintDate()
+    {
+        Console.WriteLine("Экзамен будет через неделю");
+    }
+
     
     public override void Start()
     {
@@ -95,7 +115,7 @@ public class Exam : Trial, INotification
     }
 }
 
-public class FinalExam : Exam, INotification, IPartingWords
+public class FinalExam : Exam, IPartingWords
 {
     private bool _isReady;
     private int _daysLearning;
@@ -107,9 +127,14 @@ public class FinalExam : Exam, INotification, IPartingWords
         _daysLearning = daysLearning;
     }
     
-    public new void Message()
+    public override void Message()
     {
         Console.WriteLine("Выпускной экзамен скоро начнется!");
+    }
+    
+    public override void PrintDate()
+    {
+        Console.WriteLine("Выпускной экзамен будет через месяц");
     }
 
     public void PartingWords()
